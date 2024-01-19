@@ -9,18 +9,18 @@ body {
     font-family: var(--default-font-family);
 }
 
-@media screen and (min-width: $desktopMin)  {
+@media screen and (min-width: $desktopMin) {
     * {
         &::-webkit-scrollbar {
             width: 4px;
         }
 
         &::-webkit-scrollbar-track {
-            background-color: var(--color-white);
+            background-color: var(--section-background-color);
         }
 
         &::-webkit-scrollbar-thumb {
-            background-color: var(--color-blue);
+            background-color: var(--section-font-color);
         }
     }
     body.no-scroll {
@@ -29,7 +29,43 @@ body {
     }
 }
 
-.section-offsets{
-    padding-left: var(--padding-left);
-    padding-right: var(--padding-right);
+.section-offsets {
+    padding: 5.5556vw var(--padding-right) 5.5556vw var(--padding-left);
+}
+
+section {
+    background-color: var(--section-background-color);
+    color: var(--section-font-color);
+}
+
+.banner {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: var(--section-font-color) url("../images/bananas.jpg") no-repeat center / cover;
+    @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+        background: var(--section-font-color) url("../images/100039740892b0.jpg") no-repeat center / contain;
+    }
+    &__text{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: absolute;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 5.5556vw;
+        z-index: 5;
+        font-size: 5.5556vw;
+        font-weight: bold;
+        line-height: 1.2;
+        text-shadow: 0.1389vw 0.1389vw 0.1389vw var(--section-font-color);
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            padding: 4.2667vw;
+            font-size: 8.5333vw;
+            text-align: center;
+            text-shadow: 0.5333vw 0.5333vw 0.5333vw var(--section-font-color);
+        }
+    }
 }

@@ -26,13 +26,7 @@ import zip from 'gulp-zip';//https://www.npmjs.com/package/gulp-zip
 
 /*
 Доп:
-https://www.npmjs.com/package/gulp-ssh SSH and SFTP tasks for gulp
-https://www.npmjs.com/package/gulp-htmlhint  - анализ html
-https://www.npmjs.com/package/gulp-plumber - для работы с ошибками. Не прерывает процесс выполнения задач.
-https://www.npmjs.com/package/gulp-notify - вывод сообщения в уведомления системы. Можно использовать с plumber
-https://www.npmjs.com/package/gulp-pug - работа с pug шаблонами
-https://www.npmjs.com/package/gulp-filter - плагин для фильтрации потока
-https://www.npmjs.com/package/gulp-babel -  конвертация современого js в старый
+
 
 https://github.com/browserslist/browserslist
  */

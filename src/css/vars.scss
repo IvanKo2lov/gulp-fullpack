@@ -3,14 +3,17 @@ $mobileMax: 991px;
 $desktopMin: 992px;
 :root {
     --default-font-family: 'Roboto Mono';
-    --padding-left: 1.3889vw;
-    --padding-right: 1.3889vw;
+    --padding-left: 5.5556vw;
+    --padding-right: 5.5556vw;
+
+    --accent-color: #1E35F5;
     --section-background-color: #000;
     --section-font-color: #fff;
 }
 
 @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
     :root {
-
+        --padding-left: 4.2667vw;
+        --padding-right: 4.2667vw;
     }
 }

@@ -1,0 +1,217 @@
+$mobileMin: 0px;
+$mobileMax: 991px;
+$desktopMin: 992px;
+.with-aside {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+        display: block;
+    }
+
+    article {
+        width: 86%;
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            width: 100%;
+        }
+    }
+
+    aside {
+        width: 12%;
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            display: none;
+        }
+    }
+}
+
+aside {
+    position: sticky;
+    top: 5.5556vw;
+}
+
+article {
+    > *:first-child {
+        margin-top: 0;
+    }
+
+    h1 {
+        font-size: 3.3333vw;
+        margin-top: 1.6667vw;
+        line-height: 1.2;
+        font-weight: 700;
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            font-size: 12.8000vw;
+            margin-top: 6.4000vw;
+        }
+    }
+
+    h2 {
+        font-size: 2.5000vw;
+        margin-top: 1.2500vw;
+        line-height: 1.2;
+        font-weight: 700;
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            font-size: 9.6000vw;
+            margin-top: 4.8000vw;
+        }
+    }
+
+    h3 {
+        font-size: 1.6667vw;
+        margin-top: 0.8333vw;
+        line-height: 1.2;
+        font-weight: 700;
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            font-size: 6.4000vw;
+            margin-top: 3.2000vw;
+        }
+    }
+
+    h4 {
+        font-size: 1.3889vw;
+        margin-top: 1.3889vw;
+        font-weight: 500;
+        line-height: 1.2;
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            font-size: 5.3333vw;
+            margin-top: 4.2667vw;
+        }
+    }
+
+    h5 {
+        font-size: 1.2500vw;
+        margin-top: 1.3889vw;
+        font-weight: 500;
+        line-height: 1.2;
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            font-size: 4.8000vw;
+            margin-top: 4.2667vw;
+        }
+    }
+
+    h6 {
+        font-size: 1.1111vw;
+        margin-top: 1.3889vw;
+        font-weight: 500;
+        line-height: 1.2;
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            font-size: 4.2667vw;
+            margin-top: 4.2667vw;
+        }
+    }
+
+    p {
+        font-size: 1.1111vw;
+        margin-top: 1.3889vw;
+        line-height: 1.5;
+        font-weight: 400;
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            font-size: 4.2667vw;
+            margin-top: 4.2667vw;
+        }
+    }
+
+    img, picture {
+        display: block;
+        margin-top: 1.3889vw;
+        width: 100%;
+        height: auto;
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            margin-top: 4.2667vw;
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        row-gap: 0.5556vw;
+        font-size: 1.1111vw;
+        margin-top: 1.3889vw;
+        line-height: 1.5;
+        font-weight: 400;
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            font-size: 4.2667vw;
+            margin-top: 4.2667vw;
+            row-gap: 2.1333vw;
+        }
+
+        li {
+            display: block;
+
+            &:before {
+                content: '*';
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 0.5556vw;
+                @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+                    margin: 0 1.0667vw;
+                }
+            }
+        }
+    }
+
+    ol {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        counter-reset: my-awesome-counter;
+        row-gap: 0.5556vw;
+        font-size: 1.1111vw;
+        margin-top: 1.3889vw;
+        line-height: 1.5;
+        font-weight: 400;
+        @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+            font-size: 4.2667vw;
+            margin-top: 4.2667vw;
+            row-gap: 2.1333vw;
+
+        }
+
+        li {
+            display: block;
+            counter-increment: my-awesome-counter;
+
+            &:before {
+                content: counter(my-awesome-counter) ". ";
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 0.5556vw;
+                opacity: .7;
+                @media screen and (min-width: $mobileMin) and (max-width: $mobileMax) {
+                    margin: 0 1.0667vw;
+                }
+            }
+        }
+    }
+}
+
+nav {
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        row-gap: 0.5556vw;
+
+        li {
+            display: block;
+
+            a {
+                color: var(--accent-color);
+                font-size: 1.1111vw;
+                font-weight: 500;
+                line-height: 1.2;
+                transition: .3s all ease-out;
+
+                &:hover {
+                    text-decoration: none;
+                    color: var(--section-font-color);
+                }
+            }
+        }
+    }
+}
