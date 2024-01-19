@@ -1,0 +1,35 @@
+$mobileMin: 0px;
+$mobileMax: 991px;
+$desktopMin: 992px;
+@import "./font";
+@import './vars';
+@import "./reset";
+body {
+    position: relative;
+    font-family: var(--default-font-family);
+}
+
+@media screen and (min-width: $desktopMin)  {
+    * {
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: var(--color-white);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--color-blue);
+        }
+    }
+    body.no-scroll {
+        overflow: hidden;
+        padding-right: 4px;
+    }
+}
+
+.section-offsets{
+    padding-left: var(--padding-left);
+    padding-right: var(--padding-right);
+}
