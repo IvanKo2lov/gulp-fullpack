@@ -24,13 +24,6 @@ import newer from "gulp-newer";// https://www.npmjs.com/package/gulp-newer
 import fontfacegen from './fontFaceGenerator.js';//Доработка https://www.npmjs.com/package/font-face-generator
 import zip from 'gulp-zip';//https://www.npmjs.com/package/gulp-zip
 
-/*
-Доп:
-
-
-https://github.com/browserslist/browserslist
- */
-
 
 const isBuild = process.argv.includes('--build');//true если в режиме сборки
 const isDev = !process.argv.includes('--build');//true если в режиме разработки
@@ -133,7 +126,7 @@ const images = () => {
         .pipe(gulp.dest(`${buildPath}/images/`))
         .pipe(gulp.src(`${srcPath}/images/**/*.{jpg,jpeg,png,gif,webp}`))
         .pipe(newer(`${buildPath}/images/`))//Фильтрует файлы. Остаются только те, исходники которых новее в папке билда. Чтобы каждый раз не обрабатывать все изображения
-        .pipe(imagemin([//Минифицирует изображения. Параметры дефолтные. Подробнее в доке плагина.
+        .pipe(gulpif(isBuild,imagemin([//Минифицирует изображения. Параметры дефолтные. Подробнее в доке плагина.
             gifsicle({interlaced: true}),
             mozjpeg({quality: 75, progressive: true}),
             optipng({optimizationLevel: 3}),
@@ -149,7 +142,7 @@ const images = () => {
                     }
                 ]
             })
-        ]))
+        ])))
         .pipe(gulp.dest(`${buildPath}/images/`))
         .pipe(gulp.src(`${srcPath}/images/**/*.svg`))//Svg просто копируем
         .pipe(gulp.dest(`${buildPath}/images/`))
