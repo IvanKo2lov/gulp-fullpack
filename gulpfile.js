@@ -48,7 +48,7 @@ const copy_html_to_build = () => {
     return gulp.src(`${srcPath}/html/**/*.*`).pipe(gulp.dest(`${buildPath}/html/`));
 }
 const copy_fonts_to_build = () => {
-    return gulp.src(`${srcPath}/font/**/*.*`).pipe(gulp.dest(`${buildPath}/font/`));
+    return gulp.src(`${srcPath}/fonts/**/*.*`).pipe(gulp.dest(`${buildPath}/fonts/`));
 }
 const copy_uploads_to_build = () => {
     return gulp.src(`${srcPath}/uploads/**/*.*`).pipe(gulp.dest(`${buildPath}/uploads/`));
