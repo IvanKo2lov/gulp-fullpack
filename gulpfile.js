@@ -50,6 +50,9 @@ const copy_html_to_build = () => {
 const copy_fonts_to_build = () => {
     return gulp.src(`${srcPath}/font/**/*.*`).pipe(gulp.dest(`${buildPath}/font/`));
 }
+const copy_uploads_to_build = () => {
+    return gulp.src(`${srcPath}/uploads/**/*.*`).pipe(gulp.dest(`${buildPath}/uploads/`));
+}
 const copy_version_to_build = () => {
     return gulp.src(`${srcPath}/../version.json`).pipe(gulp.dest(`${buildPath}/../`));
 }
@@ -164,27 +167,27 @@ const icons = () => {
 }
 //Шрифты конвертация( конвертируются в папку сисходниками)
 const oftToTft = () => {
-    return gulp.src(`${srcPath}/font/*.otf`, {})
+    return gulp.src(`${srcPath}/fonts/*.otf`, {})
         .pipe(fonter({formats: ['ttf']}))//если есть otf, то создаем из него ttf
-        .pipe(gulp.dest(`${srcPath}/font/`))
+        .pipe(gulp.dest(`${srcPath}/fonts/`))
 }
 
 const ttfToWoff = () => {
-    return gulp.src(`${srcPath}/font/*.ttf`, {})
+    return gulp.src(`${srcPath}/fonts/*.ttf`, {})
         .pipe(fonter({formats: ['woff']}))//ttf в woff
-        .pipe(gulp.dest(`${srcPath}/font/`))
-        .pipe(gulp.src(`${srcPath}/font/*.ttf`))
+        .pipe(gulp.dest(`${srcPath}/fonts/`))
+        .pipe(gulp.src(`${srcPath}/fonts/*.ttf`))
         .pipe(ttf2woff2())//ttf в woff2
-        .pipe(gulp.dest(`${srcPath}/font/`))
+        .pipe(gulp.dest(`${srcPath}/fonts/`))
 }
 //Генерируем font.css со всеми шрифтами из папки fonts
 const fontsCSSGenerate = () => {
-    return gulp.src(`${srcPath}/font/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}`)
-        .pipe(gulp.dest(`${srcPath}/font/`))
+    return gulp.src(`${srcPath}/fonts/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}`)
+        .pipe(gulp.dest(`${srcPath}/fonts/`))
         .pipe(
             fontfacegen({
                 filepath: `${srcPath}/css/`,
-                filename: "font.scss",
+                filename: "fonts.scss",
             })
         )
 }
@@ -207,8 +210,9 @@ const watcher = () => {
     gulp.watch(`${srcPath}/**/*.js`, gulp.series(copy_js_to_build, js));
     gulp.watch(`${srcPath}/**/*.html`, gulp.series(copy_html_to_build, copy_version_to_build, html,));
     gulp.watch(`${srcPath}/images/**/*.{jpg,jpeg,png,gif,webp,svg,ico}`, gulp.series(images, icons));
+    gulp.watch(`${srcPath}/uploads/**/*.*`, gulp.series(copy_uploads_to_build));
 }
-const copyTasks = gulp.parallel(copy_fonts_to_build, copy_js_to_build, copy_css_to_build, copy_html_to_build, copy_version_to_build);
+const copyTasks = gulp.parallel(copy_fonts_to_build, copy_js_to_build, copy_css_to_build, copy_html_to_build, copy_uploads_to_build,copy_version_to_build);
 const mainTasks = gulp.parallel(copyTasks, scss, js, html, images, icons);
 
 gulp.task('default', gulp.series(clean_build, mainTasks, gulp.parallel(watcher, server)));

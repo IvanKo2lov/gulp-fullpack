@@ -169,7 +169,7 @@ export default (options = {}) => {
                 // create @font-face fonts.css with generated fontFamily, fontStyle, fontWeight, fileName
                 fs.appendFile(
                     fontFaceFile,
-                    `@font-face {\n\tfont-family: '${new_fontFamily}';\n\tfont-style: ${fontStyle};\n\tfont-weight: ${fontWeight};\n\tfont-display: swap;\n\tsrc: local('${fontFamily}'),\n\turl("../font/${fileName}.woff2") format("woff2"),\n\turl("../font/${fileName}.woff") format("woff"),\n\turl("../font/${fileName}.ttf") format("truetype");\n}\n`,
+                    `@font-face {\n\tfont-family: '${new_fontFamily}';\n\tfont-style: ${fontStyle};\n\tfont-weight: ${fontWeight};\n\tfont-display: swap;\n\tsrc: local('${fontFamily}'),\n\turl("../fonts/${fileName}.woff2") format("woff2"),\n\turl("../fonts/${fileName}.woff") format("woff"),\n\turl("../fonts/${fileName}.ttf") format("truetype");\n}\n`,
                     (err) => {
                         if (err) {
                             console.log(`Error while creating ${fontFaceFile}`);
