@@ -31,3 +31,7 @@ https://www.npmjs.com/package/gulp-pug - работа с pug шаблонами
 https://www.npmjs.com/package/gulp-filter - плагин для фильтрации потока файлов
 
 https://www.npmjs.com/package/gulp-babel -  конвертация современого js в старый js
+
+
+Доделать:
+- добавить файл components.scss
